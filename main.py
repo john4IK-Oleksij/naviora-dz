@@ -7,12 +7,18 @@ async def read_naviora():
 
 from pydantic import BaseModel
 
+class Guide(BaseModel):
+    name: str
+    language: str
+
 class Tour(BaseModel):
     id :  str
     title: str
     country: str
+    guide: Guide
     durationDays: int
     price: float
+    cities: list[str]
     maxGuests: int | None = None
 
 tours_list = [

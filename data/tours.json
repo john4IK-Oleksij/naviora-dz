@@ -1,0 +1,36 @@
+[
+  {
+    "id": "paris-lyon-nice",
+    "title": "Paris, Lyon & Nice Escape",
+    "country": "france",
+    "price": 947,
+    "durationDays": 7,
+    "cities": [
+      "Paris",
+      "Lyon",
+      "Nice"
+    ],
+    "guide": {
+      "name": "Farley",
+      "language": "English"
+    },
+    "maxGuests": 12
+  },
+  {
+    "id": "alps-lakes",
+    "title": "Alps & Lakes Adventure",
+    "country": "switzerland",
+    "price": 749,
+    "durationDays": 5,
+    "cities": [
+      "Zurich",
+      "Lucerne",
+      "Interlaken"
+    ],
+    "guide": {
+      "name": "Sophia",
+      "language": "English"
+    },
+    "maxGuests": 10
+  }
+]
