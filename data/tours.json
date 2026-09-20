@@ -32,5 +32,21 @@
       "language": "English"
     },
     "maxGuests": 10
+  },
+  {
+    "title": "Rome & Florence",
+    "country": "italy",
+    "guide": {
+      "name": "Marco",
+      "language": "English"
+    },
+    "durationDays": 6,
+    "price": 999.0,
+    "cities": [
+      "Rome",
+      "Florence"
+    ],
+    "maxGuests": 10,
+    "id": "rome-florence"
   }
 ]
