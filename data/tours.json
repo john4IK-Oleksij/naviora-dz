@@ -14,7 +14,8 @@
       "name": "Farley",
       "language": "English"
     },
-    "maxGuests": 12
+    "maxGuests": 12,
+    "image": "tour-01.webp"
   },
   {
     "id": "alps-lakes",
@@ -31,7 +32,8 @@
       "name": "Sophia",
       "language": "English"
     },
-    "maxGuests": 10
+    "maxGuests": 10,
+    "image": "tour-02.webp"
   },
   {
     "title": "Rome & Florence",
@@ -47,6 +49,7 @@
       "Florence"
     ],
     "maxGuests": 10,
+    "image": "tour-03.webp",
     "id": "rome-florence"
   }
 ]

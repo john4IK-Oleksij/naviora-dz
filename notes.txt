@@ -1,5 +1,5 @@
 змінив файли  ↓
 
 git add .
-git commit -m "__name__"
+git commit -m "JINJA2"
 git push

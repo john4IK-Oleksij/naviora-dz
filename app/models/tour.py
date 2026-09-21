@@ -11,6 +11,7 @@ class TourBase(BaseModel):
     durationDays: int
     price: float
     cities: list[str]
+    image: str
     maxGuests: int | None = None
 
 class TourCreate(TourBase):

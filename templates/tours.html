@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+{% for tour in tours %}
+<article data-fls-tourcard class="tourcard">
+    <div class="tourcard__media">
+			<img class="tourcard__image" src="/static/images/{{ tour.image }}" alt="{{ tour.title }}">
+			<a data-fls-button class="btn btn--tourcard" href="#">
+				Explore
+			</a>
+			<div class="tourcard__label">
+				<span>07 Tours</span>
+			</div>
+		</div>
+    <div class="tourcard__content">
+        <div class="tourcard__descr">
+            <a href="#" class="tourcard__link">
+                <h3 class="tourcard__title">
+                    {{ tour.title }}
+                </h3>
+            </a>
+            <div class="tourcard__info">
+					<div class="tourcard__location">
+						<span>{{ tour.country }}</span>
+					</div>
+					<div class="tourcard__price">
+						<span class="tourcard__price-current">
+							${{ tour.price }}
+						</span>
+					</div>
+				</div>
+        </div>
+        <span class="tourcard__decor"></span>
+        <div class="tourcard__footer">
+				<time class="tourcard__date">
+					Tue, Jul 20 – Fri, Jul 23
+				</time>
+				<div class="tourcard__rating">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24">
+						<path d="M0 0h24v24H0z" fill="none" />
+						<path fill="currentColor"
+							d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z" />
+					</svg>
+					<span>4.9</span>
+				</div>
+			</div>
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
