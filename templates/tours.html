@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="tours-grid">
 {% for tour in tours %}
 <article data-fls-tourcard class="tourcard">
     <div class="tourcard__media">
@@ -46,4 +47,5 @@
     </div>
 </article>
 {% endfor %}
+    </div>
 {% endblock %}

@@ -304,3 +304,28 @@ body{
     line-height: 1.66;
     color: #23262f;
 }
+.tours-grid {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    gap: clamp(18px, 3vw, 32px);
+     margin-top: clamp(68px, 6vw, 90px);
+}
+
+@media (any-hover: hover) {
+    .tours-grid:has(.tourcard:hover) .tourcard:not(:hover) {
+        opacity: 0.55;
+        filter: blur(2px);
+        transition:
+            opacity 0.3s ease,
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .tours-grid .tourcard {
+        transition:
+            opacity 0.3s ease,
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+}
