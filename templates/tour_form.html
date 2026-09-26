@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="tour-form">
+    <div class="tour-form__container">
+        <h1 class="tour-form__title">
+            {% if tour %}
+                Edit Tour
+            {% else %}
+                Add Tour
+            {% endif %}
+        </h1>
+        <form
+            class="tour-form__form"
+            method="post"
+            action="{% if tour %}/admin/tours/edit/{{ tour.id }}{% else %}/admin/tours/add{% endif %}">
+            <div class="tour-form__group">
+                <label for="id">Tour ID</label>
+                <input
+                    type="text"
+                    id="id"
+                    name="id"
+                    placeholder="name-name"
+                    value="{{ tour.id if tour else '' }}"
+                    required>
+            </div>
+            <div class="tour-form__group">
+                <label for="title">Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Name Tour"
+                    name="title"
+                    value="{{ tour.title if tour else '' }}"
+                    required>
+            </div>
+            <div class="tour-form__group">
+                <label for="country">Country</label>
+                <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    placeholder="Name of the Country"
+                    value="{{ tour.country|capitalize if tour else '' }}"
+                    required>
+            </div>
+            <div class="tour-form__row">
+                <div class="tour-form__group">
+                    <label for="durationDays">Duration, days</label>
+                    <input
+                        type="number"
+                        id="durationDays"
+                        name="durationDays"
+                        min="1"
+                        value="{{ tour.durationDays if tour else '' }}"
+                        required>
+                </div>
+                <div class="tour-form__group">
+                    <label for="price">Price</label>
+                    <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        min="1"
+                        step="0.01"
+                        value="{{ tour.price if tour else '' }}"
+                        required>
+                </div>
+                <div class="tour-form__group">
+                    <label for="maxGuests">Max guests</label>
+                    <input
+                        type="number"
+                        id="maxGuests"
+                        name="maxGuests"
+                        min="1"
+                        value="{{ tour.maxGuests if tour else '' }}">
+                </div>
+            </div>
+            <div class="tour-form__group">
+                <label for="cities">Cities</label>
+                <input
+                    type="text"
+                    id="cities"
+                    name="cities"
+                    value="{{ tour.cities | join(', ') if tour else '' }}"
+                    placeholder="City, City"
+                    required>
+            </div>
+            <div class="tour-form__row">
+                <div class="tour-form__group">
+                    <label for="guideName">Guide name</label>
+                    <input
+                        type="text"
+                        id="guideName"
+                        name="guideName"
+                        placeholder="Name"
+                        value="{{ tour.guide.name if tour else '' }}"
+                        required>
+                </div>
+                <div class="tour-form__group">
+                    <label for="guideLanguage">Guide language</label>
+                    <input
+                        type="text"
+                        id="guideLanguage"
+                        placeholder="Language"
+                        name="guideLanguage"
+                        value="{{ tour.guide.language if tour else '' }}"
+                        required>
+                </div>
+            </div>
+            <div class="tour-form__group">
+                <label for="image">Image URL</label>
+                <input type="text"
+                    id="image"
+                    name="image"
+                       placeholder="file_name.file"
+                    value="{{ tour.image if tour else '' }}"
+                    required>
+            </div>
+            <div class="tour-form__actions">
+                <a class="tour-form__button tour-form__button--cancel"
+                    href="/admin/tours">
+                    Cancel
+                </a>
+                <button class="tour-form__button tour-form__button--submit"
+                    type="submit">
+                    {% if tour %}
+                        Save Changes
+                    {% else %}
+                        Add Tour
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

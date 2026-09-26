@@ -26,7 +26,10 @@ async def tours_page(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="tours.html",
-        context={"tours": tours}
+        context={
+            "tours": tours,
+            "is_admin": False
+        }
     )
 
 

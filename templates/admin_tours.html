@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="admin-tours">
+    <div class="admin-tours__container">
+        <div class="admin-tours__header">
+            <h1 class="admin-tours__title">Manage Tours</h1>
+            <a class="admin-tours__add" href="/admin/tours/add">
+                Add Tour
+            </a>
+        </div>
+        <div class="admin-tours__list">
+            {% for tour in tours %}
+                <article class="admin-tour">
+                    <div class="admin-tour__content">
+                        <h2 class="admin-tour__title">
+                            {{ tour.title }}
+                        </h2>
+                        <p class="admin-tour__info">
+                            {{ tour.country }} ·
+                            {{ tour.durationDays }} days ·
+                            ${{ tour.price }}
+                        </p>
+                    </div>
+                    <div class="admin-tour__actions">
+                        <a href="/admin/tours/edit/{{ tour.id }}">
+                            Edit
+                        </a>
+                        <form method="post" action="/admin/tours/delete/{{ tour.id }}">
+                            <button type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

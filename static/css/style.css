@@ -1,5 +1,80 @@
+/*+++++++++ Reset Style ++++++++++++*/
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+*::before,
+*::after {
+	display: inline-block;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	line-height: 1;
+	scrollbar-gutter: stable;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+input,
+textarea {
+	width: 100%;
+}
+label {
+	display: inline-block;
+}
+button,
+select,
+option {
+	cursor: pointer;
+}
+a {
+	display: inline-block;
+	color: inherit;
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+address {
+	font-style: normal;
+}
+/*++++++++++++++++++++++++++*/
 body{
-    background-color: #1e5658;
+    background-color: #abced3;
 }
 .header {
     position: absolute;
@@ -8,20 +83,21 @@ body{
     width: 100%;
     height: 80px;
     z-index: 10;
-    padding: 0 40px;
 }
 
-.header__container {
+.header__container,
+.footer__container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
     max-width: 1200px;
+    padding:0 15px;
     margin: 0 auto;
 }
 
 .header__logo {
-    color: #fcfcfd;
+    color: #1d3439;
     font-size: 24px;
     font-weight: 700;
     text-decoration: none;
@@ -37,21 +113,25 @@ body{
 }
 
 .header__link {
-    color: #fcfcfd;
-    font-size: 16px;
+    color: #0c1f25;
+    font-size: 20px;
     font-weight: 500;
     text-decoration: none;
 }
 
 .header__link:hover {
-    color: #fb8e66;
+    color: #9a4a00;
 }
+/*++++++++++++ Hero ++++++++++++*/
 .hero {
     height: 100vh;
     position: relative;
     margin-top: clamp(68px, 6vw, 90px);
 }
-
+.hero__container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .hero::before {
     content: "";
     position: absolute;
@@ -88,9 +168,6 @@ body{
     );
 }
 
-.hero__container {
-}
-
 .hero__body {
     position: absolute;
     inset: 0;
@@ -125,12 +202,37 @@ body{
         padding-top: 120px;
     }
 }
-/*-------------------*/
+/*-------- Tours-grid/ Tours -----------*/
+.tours__container{
+    max-width: 1200px;
+      margin: clamp(68px, 6vw, 90px) auto 0;
+}
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    gap: clamp(18px, 3vw, 32px);
+}
+@media (any-hover: hover) {
+    .tours-grid:has(.tourcard:hover) .tourcard:not(:hover) {
+        opacity: 0.55;
+        filter: blur(2px);
+        transition:
+            opacity 0.3s ease,
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+    .tours-grid .tourcard {
+        transition:
+            opacity 0.3s ease,
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+}
 .tourcard {
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     padding-bottom: 20px;
     box-shadow: 0 12px 32px rgb(0 0 0 / 0.07);
 }
@@ -147,12 +249,15 @@ body{
     z-index: 2;
     top: 16px;
     left: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 6px 12px;
     font-size: 12px;
     font-weight: 700;
     color: #fcfcfd;
-    background-color: #43b93a;
-    border-radius: 32px;
+    background-color: green;
+    border-radius: 10px;
 }
 
 .tourcard__media::after {
@@ -222,15 +327,17 @@ body{
 .tourcard__content {
     flex: 1;
     display: grid;
-    gap: 16px;
+    gap: 10px;
     padding: 0 16px;
 }
 
 .tourcard__link {
+     width: fit-content;
     margin-bottom: auto;
 }
 
 .tourcard__link h3 {
+
     font-size: 16px;
     line-height: 1.5;
     font-weight: 500;
@@ -240,6 +347,7 @@ body{
 @media (any-hover: hover) {
     .tourcard__link:hover h3 {
         text-decoration: underline;
+        text-underline-offset: 4px;
     }
 }
 
@@ -253,12 +361,15 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /*span{*/
+    /*    color: #1d3439;*/
+    /*}*/
 }
 
 .tourcard__location {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.66;
-    color: #353945;
+    color: #1d3439;
 }
 
 .tourcard__price {
@@ -277,7 +388,7 @@ body{
 
 .tourcard__price-current {
     font-size: 12px;
-    color: #43b93a;
+    color: #1d3439;
     font-weight: 700;
 }
 
@@ -292,7 +403,7 @@ body{
     display: block;
     width: 100%;
     height: 1px;
-    background-color: #e6e8ec;
+    background-color: #76b67b;
     margin: 0 auto;
 }
 
@@ -304,28 +415,355 @@ body{
     line-height: 1.66;
     color: #23262f;
 }
-.tours-grid {
-    display: grid;
-    align-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-    gap: clamp(18px, 3vw, 32px);
-     margin-top: clamp(68px, 6vw, 90px);
+
+/*+++++++++ Admin ++++++++++++*/
+.admin {
+    padding-top: 80px;
+    min-height: calc(100vh - 80px);
 }
-
-@media (any-hover: hover) {
-    .tours-grid:has(.tourcard:hover) .tourcard:not(:hover) {
-        opacity: 0.55;
-        filter: blur(2px);
-        transition:
-            opacity 0.3s ease,
-            filter 0.3s ease,
-            transform 0.3s ease;
+.admin__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+.admin__title {
+    margin-bottom: 48px;
+    text-align: center;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    font-weight: 700;
+    color: #0c1f25;
+}
+.admin__actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.admin__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    padding: 32px;
+    border-radius: 24px;
+    background-color: #fcfcfd;
+    color: #23262f;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.admin__button:hover {
+    background-color: #dfceca;
+    transform: translateY(-4px);
+}
+@media (max-width: 700px) {
+    .admin__actions {
+        grid-template-columns: 1fr;
     }
-
-    .tours-grid .tourcard {
-        transition:
-            opacity 0.3s ease,
-            filter 0.3s ease,
-            transform 0.3s ease;
+    .admin__container {
+        padding: 60px 20px;
     }
+}
+.tourcard__admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px 16px;
+    margin-top: auto;
+}
+.tourcard__admin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: #8eca91;
+    color: #23262f;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.tourcard__admin-button--edit:hover {
+    border-color: #0a575c;
+     background-color: #76b67b;
+}
+.tourcard__admin-button--delete {
+    border-color: #e05252;
+    background-color: #e05252;
+    color: #fcfcfd;
+}
+.tourcard__admin-button--delete:hover {
+     border-color: #e6e8ec;
+    background-color: #b93636;
+}
+/*+++++++ Form/Edit-Tour +++++++++++++++++++*/
+.tour-form {
+    min-height: calc(100vh - 80px);
+    padding-top: 80px;
+}
+.tour-form__container {
+    width: min(100% - 40px, 800px);
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.tour-form__title {
+    margin: 0 0 20px;
+    color: #1d3439;
+    text-align: center;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    font-weight: 700;
+}
+.tour-form__form {
+    display: grid;
+    gap: 24px;
+    padding: 32px;
+    border-radius: 24px;
+    background-color: #fcfcfd;
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.07);
+}
+.tour-form__group {
+    min-width: 0;
+    display: grid;
+    gap: 8px;
+}
+.tour-form__group label {
+    color: #23262f;
+    font-size: 14px;
+    font-weight: 600;
+}
+.tour-form__group input {
+    width: 100%;
+    min-width: 0;
+    min-height: 32px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    border: 1px solid #e6e8ec;
+    border-radius: 8px;
+    background-color: #fcfcfd;
+    color: #23262f;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.tour-form__group input:focus {
+    border-color: #55955e;
+    box-shadow: 0 0 0 3px rgb(85 149 94 / 0.15);
+}
+.tour-form__row {
+    display: flex;
+    gap: 16px;
+}
+.tour-form__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+}
+.tour-form__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.tour-form__button--cancel {
+    border-color: #e6e8ec;
+    background-color: #fcfcfd;
+    color: #23262f;
+}
+.tour-form__button--cancel:hover {
+    background-color: #e6e8ec;
+}
+.tour-form__button--submit {
+    background-color: #55955e;
+    color: #fcfcfd;
+}
+.tour-form__button--submit:hover {
+    background-color: #43b93a;
+}
+@media (max-width: 700px) {
+    .tour-form__container {
+        width: min(100% - 24px, 800px);
+        padding-top: 40px;
+    }
+    .tour-form__form {
+        padding: 24px;
+    }
+    .tour-form__row {
+        grid-template-columns: 1fr;
+    }
+    .tour-form__actions {
+        flex-direction: column;
+    }
+    .tour-form__button {
+        width: 100%;
+    }
+}
+/*++++++++++ Contacts +++++++++++++++++*/
+.contacts {
+    min-height: calc(100vh - 80px);
+    padding-top: 80px;
+}
+.contacts__container {
+    width: min(100% - 80px, 1200px);
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 80px;
+}
+.contacts__intro {
+    max-width: 480px;
+}
+.contacts__subtitle {
+    margin: 0 0 20px;
+    color: #3f7f89;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.contacts__title {
+    margin: 0 0 24px;
+    color: #1d3439;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1;
+    font-weight: 700;
+}
+.contacts__text {
+    max-width: 420px;
+    margin: 0 0 48px;
+    color: #23262f;
+    font-size: 17px;
+    line-height: 1.6;
+}
+.contacts__info {
+    display: grid;
+    gap: 28px;
+}
+.contacts__item {
+    display: grid;
+    gap: 8px;
+}
+.contacts__item-title {
+    margin: 0;
+    color: #1d3439;
+    font-size: 18px;
+    font-weight: 700;
+}
+.contacts__item-link {
+    width: fit-content;
+    color: #3f7f89;
+    font-size: 16px;
+    text-decoration: none;
+}
+.contacts__item-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.contacts__form {
+    display: grid;
+    gap: 24px;
+    padding: 40px;
+    border-radius: 24px;
+    background-color: #fcfcfd;
+    box-shadow: 0 12px 32px rgb(0 0 0 / 0.07);
+}
+.contacts__group {
+    display: grid;
+    gap: 8px;
+}
+.contacts__group label {
+    color: #23262f;
+    font-size: 14px;
+    font-weight: 600;
+}
+.contacts__group input,
+.contacts__group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e6e8ec;
+    border-radius: 8px;
+    background-color: #fcfcfd;
+    color: #23262f;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contacts__group input {
+    min-height: 46px;
+}
+.contacts__group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+.contacts__group input:focus,
+.contacts__group textarea:focus {
+    border-color: #55955e;
+    box-shadow: 0 0 0 3px rgb(85 149 94 / 0.15);
+}
+.contacts__button {
+    min-height: 46px;
+    padding: 10px 24px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: #55955e;
+    color: #fcfcfd;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.contacts__button:hover {
+    background-color: #43b93a;
+}
+@media (max-width: 800px) {
+    .contacts__container {
+        width: min(100% - 40px, 600px);
+        padding: 60px 0;
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .contacts__intro {
+        max-width: none;
+    }
+    .contacts__form {
+        padding: 28px;
+    }
+}
+@media (max-width: 500px) {
+    .contacts__container {
+        width: min(100% - 24px, 600px);
+    }
+    .contacts__form {
+        padding: 24px;
+    }
+}
+.contacts__success {
+    margin: 16px 0 0;
+    color: #55955e;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+/* ++++++++++ Footer  ++++++++++++++++++*/
+.footer{
+    width: 100%;
+    height: 80px;
 }

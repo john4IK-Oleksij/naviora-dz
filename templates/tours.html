@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="tours__container">
 <div class="tours-grid">
 {% for tour in tours %}
 <article data-fls-tourcard class="tourcard">
@@ -21,7 +22,7 @@
             </a>
             <div class="tourcard__info">
 					<div class="tourcard__location">
-						<span>{{ tour.country }}</span>
+						<span>{{ tour.country|capitalize }}</span>
 					</div>
 					<div class="tourcard__price">
 						<span class="tourcard__price-current">
@@ -45,7 +46,28 @@
 				</div>
 			</div>
     </div>
+
+        {% if is_admin %}
+   <div class="tourcard__admin-actions">
+    <a
+        class="tourcard__admin-button tourcard__admin-button--edit"
+        href="/admin/tours/edit/{{ tour.id }}">
+        Edit
+    </a>
+    <form method="post" action="/admin/tours/delete/{{ tour.id }}">
+        <button
+            class="tourcard__admin-button tourcard__admin-button--delete"
+            type="submit"
+        onclick="return confirm('Are you sure you want to delete this tour?');">
+            Delete
+        </button>
+    </form>
+</div>
+{% endif %}
+
 </article>
+
 {% endfor %}
     </div>
+</div>
 {% endblock %}

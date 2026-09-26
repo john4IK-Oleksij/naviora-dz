@@ -3,8 +3,8 @@
     "id": "paris-lyon-nice",
     "title": "Paris, Lyon & Nice Escape",
     "country": "france",
-    "price": 947,
-    "durationDays": 7,
+    "price": 1947.0,
+    "durationDays": 12,
     "cities": [
       "Paris",
       "Lyon",
@@ -14,26 +14,8 @@
       "name": "Farley",
       "language": "English"
     },
-    "maxGuests": 12,
+    "maxGuests": 13,
     "image": "tour-01.webp"
-  },
-  {
-    "id": "alps-lakes",
-    "title": "Alps & Lakes Adventure",
-    "country": "switzerland",
-    "price": 749,
-    "durationDays": 5,
-    "cities": [
-      "Zurich",
-      "Lucerne",
-      "Interlaken"
-    ],
-    "guide": {
-      "name": "Sophia",
-      "language": "English"
-    },
-    "maxGuests": 10,
-    "image": "tour-02.webp"
   },
   {
     "title": "Rome & Florence",
@@ -51,5 +33,45 @@
     "maxGuests": 10,
     "image": "tour-03.webp",
     "id": "rome-florence"
+  },
+  {
+    "title": "Golden Triangle of India",
+    "country": "india",
+    "guide": {
+      "name": "Tomas",
+      "language": "English"
+    },
+    "durationDays": 7,
+    "price": 935.0,
+    "cities": [
+      "Jaipur",
+      "New Delhi",
+      "Mumbai",
+      "Agra",
+      "Varanasi"
+    ],
+    "image": "new-delhi.jpg",
+    "maxGuests": 16,
+    "id": "golden-triangle-india"
+  },
+  {
+    "title": "Marrakech, Fes & Casablanca Journey",
+    "country": "morocco",
+    "guide": {
+      "name": "Emma",
+      "language": "Deutch"
+    },
+    "durationDays": 7,
+    "price": 939.0,
+    "cities": [
+      "Fes",
+      "Casablanca",
+      "Rabat",
+      "Tangier",
+      "Marrakech"
+    ],
+    "image": "casablanca.jpg",
+    "maxGuests": 14,
+    "id": "marrakech-fes-casablanca-journey"
   }
 ]
