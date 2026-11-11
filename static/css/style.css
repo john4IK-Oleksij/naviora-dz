@@ -144,12 +144,10 @@ body{
 .menu-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(12, 31, 37, 0.45);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    background: rgba(12, 31, 37, 0.5);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.35s ease, visibility 0.35s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 90;
     pointer-events: none;
 }
@@ -172,8 +170,8 @@ body{
     .header__burger {
         display: block;
         position: relative;
-        width: 32px;
-        height: 22px;
+        width: 30px;
+        height: 18px;
         background: transparent;
         border: none;
         cursor: pointer;
@@ -188,14 +186,13 @@ body{
         position: absolute;
         left: 0;
         width: 100%;
-        height: 2.5px;
+        height: 3px;
         background-color: #1d3439;
         border-radius: 2px;
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                    top 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                    bottom 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.25s ease,
-                    background-color 0.35s ease;
+        transition: transform 0.3s ease,
+                    top 0.3s ease,
+                    opacity 0.2s ease,
+                    background-color 0.3s ease;
     }
 
     .header__burger::before {
@@ -203,12 +200,11 @@ body{
     }
 
     .header__burger span {
-        top: 50%;
-        transform: translateY(-50%);
+        top: 7px;
     }
 
     .header__burger::after {
-        bottom: 0;
+        top: 14px;
     }
 
     /* Burger Active -> 'X' cross */
@@ -218,15 +214,14 @@ body{
     }
 
     .menu-open .header__burger::before {
-        top: 50%;
-        transform: translateY(-50%) rotate(45deg);
+        top: 7px;
+        transform: rotate(45deg);
         background-color: #fcfcfd;
     }
 
     .menu-open .header__burger::after {
-        bottom: auto;
-        top: 50%;
-        transform: translateY(-50%) rotate(-45deg);
+        top: 7px;
+        transform: rotate(-45deg);
         background-color: #fcfcfd;
     }
 
@@ -238,16 +233,14 @@ body{
         width: min(320px, 82vw);
         height: 100vh;
         height: 100dvh;
-        background: rgba(29, 52, 57, 0.98);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        background: #1d3439;
         padding: 96px 28px 40px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.35);
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4);
         transform: translateX(100%);
-        transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.38s;
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.35s;
         visibility: hidden;
         z-index: 100;
         overflow-y: auto;
@@ -385,19 +378,11 @@ body{
     gap: clamp(18px, 3vw, 32px);
 }
 @media (any-hover: hover) {
-    .tours-grid:has(.tourcard:hover) .tourcard:not(:hover) {
-        opacity: 0.55;
-        filter: blur(2px);
-        transition:
-            opacity 0.3s ease,
-            filter 0.3s ease,
-            transform 0.3s ease;
-    }
     .tours-grid .tourcard {
-        transition:
-            opacity 0.3s ease,
-            filter 0.3s ease,
-            transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tours-grid .tourcard:hover {
+        transform: translateY(-4px);
     }
 }
 .tourcard {
