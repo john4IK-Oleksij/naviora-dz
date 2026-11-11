@@ -362,10 +362,15 @@ body{
     line-height: 1.5;
 }
 
-@media (max-width: 491px) {
+@media (max-width: 490px) {
     .hero__body {
         align-content: start;
         padding-top: 120px;
+    }
+
+    .tours-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
 /*-------- Tours-grid/ Tours -----------*/
