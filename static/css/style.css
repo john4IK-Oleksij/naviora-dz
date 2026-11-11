@@ -360,11 +360,6 @@ body{
         align-content: start;
         padding-top: 120px;
     }
-
-    .tours-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
 }
 /*-------- Tours-grid/ Tours -----------*/
 .tours__container{
@@ -376,6 +371,20 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
     gap: clamp(18px, 3vw, 32px);
+}
+
+@media (max-width: 768px) {
+    .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 490px) {
+    .tours-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 @media (any-hover: hover) {
     .tours-grid .tourcard {
